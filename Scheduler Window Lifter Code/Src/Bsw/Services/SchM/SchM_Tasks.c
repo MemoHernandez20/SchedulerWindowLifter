@@ -91,12 +91,28 @@
 /*============================================================================*/
 
 void SchM_3p125ms_Task(void) {
-	Dio_PortTooglePin(PORTCH_C, LED_3P125MS);
+/*Timing Test ( Use a counter to evaluate the times that the scheduler enter to this Task = toogle LED )*/
 	static int counter;
-	for (counter = 0; counter <= NumberOfCycles ; counter++) {
+	static int flag=0;
+	counter++;
+	if (counter>=3000 && (flag !=1) ) /*3000 * 1ms = 3seconds*/
+	{
+		Dio_PortTooglePin(PORTCH_D, LED_OVERLOAD);
+		counter=0;
+		flag=1;
 	}
 
+	if (counter>=3000 && (flag ==1) )
+		{
+			Dio_PortTooglePin(PORTCH_D, LED_OVERLOAD);
+			counter=0;
+			flag=0;
+		}
+
+
 }
+
+/*
 
 void SchM_6p25ms_Task(void) {
 	Dio_PortTooglePin(PORTCH_B, LED_6P25MS);
@@ -130,6 +146,7 @@ extern void SchM_100ms_Task(void) {
 	for (counter = 0; counter <= NumberOfCycles ; counter++) {
 	}
 
-}
+
+} */
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */

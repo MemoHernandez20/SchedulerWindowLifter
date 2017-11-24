@@ -63,7 +63,7 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 typedef enum {
-	SCHM_MASK_3P125MS = (T_UBYTE) 0x03u,
+	SCHM_MASK_3P125MS = (T_UBYTE) 0x02u,
 	SCHM_MASK_6P25MS = (T_UBYTE) 0x07u,
 	SCHM_MASK_12P5MS = (T_UBYTE) 0x0Fu,
 	SCHM_MASK_25MS = (T_UBYTE) 0x1Fu,

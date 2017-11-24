@@ -3,7 +3,7 @@ Src/Bsw/Services/SchM/SchM_Cfg.o: ../Src/Bsw/Services/SchM/SchM_Cfg.c \
  C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/common.prefix \
  C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/ewl_c_version.h \
  ../Src/Bsw/Services/SchM/SchM.h \
- C:/Users/uidn8311/Desktop/Scheduler3/SCHEDULER/Scheduler/Project_Settings/Common/Std_Types.h \
+ C:/Users/uidn8311/Desktop/Practica\ 4/Scheduler/Project_Settings/Common/Std_Types.h \
  C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/stdint.h \
  C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/ansi_parms.h \
  C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/ewlGlobals.h \
@@ -25,7 +25,7 @@ C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/ewl_c_version.h:
 
 ../Src/Bsw/Services/SchM/SchM.h:
 
-C:/Users/uidn8311/Desktop/Scheduler3/SCHEDULER/Scheduler/Project_Settings/Common/Std_Types.h:
+C:/Users/uidn8311/Desktop/Practica\ 4/Scheduler/Project_Settings/Common/Std_Types.h:
 
 C:/NXP/S32DS_ARM_v2.0/S32DS/arm_ewl2/EWL_C/include/stdint.h:
 
