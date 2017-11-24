@@ -1170,7 +1170,7 @@ OUTPUT(Scheduler.elf elf32-littlearm)
  .debug_macro   0x000102f8       0x22 ./Project_Settings/Startup_Code/system_S32K144.o
  .debug_macro   0x0001031a       0xea ./Project_Settings/Startup_Code/startup.o
 
-.debug_line     0x00000000     0x2018
+.debug_line     0x00000000     0x2004
  .debug_line    0x00000000      0x2eb ./Src/Bsw/Services/SchM/SchM_Tasks.o
  .debug_line    0x000002eb      0x204 ./Src/Bsw/Services/SchM/SchM_Cfg.o
  .debug_line    0x000004ef      0x3c7 ./Src/Bsw/Services/SchM/SchM.o
@@ -1178,14 +1178,14 @@ OUTPUT(Scheduler.elf elf32-littlearm)
  .debug_line    0x00000af2      0x24f ./Src/Bsw/Mcal/Port/Port.o
  .debug_line    0x00000d41      0x23c ./Src/Bsw/Mcal/Nvic/Nvic.o
  .debug_line    0x00000f7d      0x28e ./Src/Bsw/Mcal/Mcu/Mcu.o
- .debug_line    0x0000120b      0x274 ./Src/Bsw/Mcal/Lpit/Lpit.o
- .debug_line    0x0000147f      0x26a ./Src/Bsw/Mcal/Dio/Dio.o
- .debug_line    0x000016e9      0x3a5 ./Src/Asw/Entry/Main.o
- .debug_line    0x00001a8e      0x2a1 ./Project_Settings/Startup_Code/system_S32K144.o
- .debug_line    0x00001d2f       0x83 ./Project_Settings/Startup_Code/startup_S32K144.o
- .debug_line    0x00001db2      0x266 ./Project_Settings/Startup_Code/startup.o
+ .debug_line    0x0000120b      0x260 ./Src/Bsw/Mcal/Lpit/Lpit.o
+ .debug_line    0x0000146b      0x26a ./Src/Bsw/Mcal/Dio/Dio.o
+ .debug_line    0x000016d5      0x3a5 ./Src/Asw/Entry/Main.o
+ .debug_line    0x00001a7a      0x2a1 ./Project_Settings/Startup_Code/system_S32K144.o
+ .debug_line    0x00001d1b       0x83 ./Project_Settings/Startup_Code/startup_S32K144.o
+ .debug_line    0x00001d9e      0x266 ./Project_Settings/Startup_Code/startup.o
 
-.debug_str      0x00000000    0x62efc
+.debug_str      0x00000000    0x62f31
  .debug_str     0x00000000     0x40db ./Src/Bsw/Services/SchM/SchM_Tasks.o
                                0x415f (size before relaxing)
  .debug_str     0x000040db      0x2a7 ./Src/Bsw/Services/SchM/SchM_Cfg.o
@@ -1200,15 +1200,15 @@ OUTPUT(Scheduler.elf elf32-littlearm)
                               0x5dd2d (size before relaxing)
  .debug_str     0x0005e3f6       0xf2 ./Src/Bsw/Mcal/Mcu/Mcu.o
                               0x5dda6 (size before relaxing)
- .debug_str     0x0005e4e8       0x90 ./Src/Bsw/Mcal/Lpit/Lpit.o
-                              0x5dd68 (size before relaxing)
- .debug_str     0x0005e578       0x76 ./Src/Bsw/Mcal/Dio/Dio.o
+ .debug_str     0x0005e4e8       0xc5 ./Src/Bsw/Mcal/Lpit/Lpit.o
+                              0x5dd5e (size before relaxing)
+ .debug_str     0x0005e5ad       0x76 ./Src/Bsw/Mcal/Dio/Dio.o
                               0x5dd5f (size before relaxing)
- .debug_str     0x0005e5ee       0x1d ./Src/Asw/Entry/Main.o
+ .debug_str     0x0005e623       0x1d ./Src/Asw/Entry/Main.o
                                0x432a (size before relaxing)
- .debug_str     0x0005e60b     0x47d1 ./Project_Settings/Startup_Code/system_S32K144.o
+ .debug_str     0x0005e640     0x47d1 ./Project_Settings/Startup_Code/system_S32K144.o
                               0x624f1 (size before relaxing)
- .debug_str     0x00062ddc      0x120 ./Project_Settings/Startup_Code/startup.o
+ .debug_str     0x00062e11      0x120 ./Project_Settings/Startup_Code/startup.o
                               0x62428 (size before relaxing)
 
 .comment        0x00000000       0x70
