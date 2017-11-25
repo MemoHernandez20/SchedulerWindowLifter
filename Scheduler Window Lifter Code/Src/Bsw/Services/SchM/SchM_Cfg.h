@@ -1,25 +1,21 @@
-/*
- * SchM_Cfg.h
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.x $
+ * $Source: SchM_Cfg.h $
  * $Revision: 1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
+ * $Date: 25/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/**
- */
+/** \
+ * 		Include Struct with the values of the Task 1ms and 2ms
+    	Values: Mask, Offset, ID.
+    
+*/
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -35,73 +31,72 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*       AUTHOR        |      VERSION       |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/*Guillermo Hernandez  |          1         | Cahnges on the values of the    */
+/*                     |                    |   enums related to each Task    */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
- ============================================================================*/
+ * $Log: SchM_Cfg.h  $
+  ============================================================================*/
 #ifndef BSW_SERVICES_SCHM_SCHM_CFG_H_
 #define BSW_SERVICES_SCHM_SCHM_CFG_H_
 
+
 /* Includes */
 /*============================================================================*/
-
 #include "Std_Types.h"
+
+
+
+/* Defines */
+/*============================================================================*/
+
 
 /* Constants and types */
 /*============================================================================*/
+typedef enum{
+	SCHM_MASK_1MS = (T_UBYTE) 0x01u,
+	SCHM_MASK_2MS = (T_UBYTE) 0x03u
+}SchM_TaskMaskType;
 
-/* Exported Variables */
-/*============================================================================*/
+typedef enum{
+	SCHM_TASKID_1MS,
+	SCHM_TASKID_2MS
+}SchM_TaskIDType;
 
-/* Exported functions prototypes */
-/*============================================================================*/
-typedef enum {
-	SCHM_MASK_3P125MS = (T_UBYTE) 0x02u,
-	SCHM_MASK_6P25MS = (T_UBYTE) 0x07u,
-	SCHM_MASK_12P5MS = (T_UBYTE) 0x0Fu,
-	SCHM_MASK_25MS = (T_UBYTE) 0x1Fu,
-	SCHM_MASK_50MS = (T_UBYTE) 0x3Fu,
-	SCHM_MASK_100MS = (T_UBYTE) 0x7Fu
-} SchM_TaskMaskType;
-
-typedef enum {
-	SCHM_TASKID_BKG,
-	SCHM_TASKID_3P125MS,
-	SCHM_TASKID_6P25MS,
-	SCHM_TASKID_12P5MS,
-	SCHM_TASKID_25MS,
-	SCHM_TASKID_50MS,
-	SCHM_TASKID_100MS
-} SchM_TaskIDType;
-
-typedef enum {
-	SCHM_OFFSET_3P125MS = (T_UBYTE) 0x00u,
-	SCHM_OFFSET_6P25MS = (T_UBYTE) 0x01u,
-	SCHM_OFFSET_12P5MS = (T_UBYTE) 0x02u,
-	SCHM_OFFSET_25MS = (T_UBYTE) 0x03u,
-	SCHM_OFFSET_50MS = (T_UBYTE) 0x05u,
-	SCHM_OFFSET_100MS = (T_UBYTE) 0x06u
+typedef enum{
+	SCHM_OFFSET_1MS   = (T_UBYTE) 0x00u,
+	SCHM_OFFSET_2MS   = (T_UBYTE) 0x01u
 } SchM_TaskOffsetType;
 
-typedef struct {
-	SchM_TaskIDType TaskID;
-	SchM_TaskMaskType TaskMask;
+typedef struct{
+	SchM_TaskIDType 	TaskID;
+	SchM_TaskMaskType 	TaskMask;
 	SchM_TaskOffsetType TaskOffset;
 	tCallbackFunction TaskCallback;
-} SchM_TaskConfigType;
+}SchM_TaskConfigType;
+
 
 typedef struct {
 	uint8_t NumOfTasks;
 	const SchM_TaskConfigType *TaskConfig;
-} SchM_ConfigType;
+}SchM_ConfigType;
 
 const SchM_ConfigType SchedulerConfig;
 
+
+
+
+/* Exported Variables */
+/*============================================================================*/
+
+
+/* Exported functions prototypes */
+/*============================================================================*/
+
 #endif /* BSW_SERVICES_SCHM_SCHM_CFG_H_ */
+
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
