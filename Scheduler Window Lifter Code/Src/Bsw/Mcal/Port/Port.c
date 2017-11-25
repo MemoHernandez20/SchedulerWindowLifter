@@ -1,25 +1,20 @@
-/*
- * Port.c
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
- * $Revision: v1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Source: Port.c $
+ * $Revision: 3 $
+ * $Author: Hernández Ramirez Guillermo, Hernandez Jimenez Manuel $
+ * $Date: 25/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /**
- */
+ * Enable and Configure Ports of LEDS and Buttons
+    
+*/
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -35,17 +30,17 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |       VERSION      |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/* Guillermo Hernandez |         1          |   Enable & Config Ports         */
+/*                     |                    |        LEDS & Buttons           */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
- ============================================================================*/
+ * $Log: Port.c  $
+  ============================================================================*/
+
 
 /* Includes */
 /*============================================================================*/
@@ -53,69 +48,132 @@
 #include "General.h"          /* include peripheral declarations */
 #include "Port.h"
 
-/* Constants and types  */
+
+/* Defines */
 /*============================================================================*/
 
-/* Variables */
+
+
+/* Constants and types */
 /*============================================================================*/
 
-/* Private functions prototypes */
+
+
+/* Exported Variables */
 /*============================================================================*/
 
-/* Inline functions */
-/*============================================================================*/
-
-/* Private functions */
-/*============================================================================*/
-
-/** Check if action is allowed by overload protection.
- To avoid overheating of the door locking motors and hardware failure
- the software shall limit the number of activations in a short period.
- This function checks if the limitation algorithm allows or not
- a certain activation of the motors.
- \returns TRUE if the activation is allowed, FALSE if not
- */
 
 /* Exported functions */
 /*============================================================================*/
 
-void PORT_init(void) {
-	//------------------PORTD
-	PCC->PCCn[PCC_PORTD_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT C */
+void PORT_init (void) {
 
-	PTD->PDDR |= 1 << LED_BKG; /* Port C7:  Data Direction= output */
-	PORTD->PCR[LED_BKG] = 0x00000100; /* Port C7:  MUX = ALT1, GPIO (to PORT C7) */
-	PTD->PDDR |= 1 << LED_OVERLOAD; /* Port C7:  Data Direction= output */
-	PORTD->PCR[LED_OVERLOAD] = 0x00000100; /* Port C7:  MUX = ALT1, GPIO (to PORT C7) */
 
-	PTD->PSOR |= 1 << LED_OVERLOAD;
-	PTD->PSOR |= 1 << LED_BKG;
+  //------------------PORTB-------------------------------------------------------//
+  PCC-> PCCn[PCC_PORTB_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT B */
 
-	//------------------PORTC
-	PCC->PCCn[PCC_PORTC_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT C */
 
-	PTC->PDDR |= 1 << LED_3P125MS; /* Port C7:  Data Direction= output */
-	PORTC->PCR[LED_3P125MS] = 0x00000100; /* Port C7:  MUX = ALT1, GPIO (to PORT C7) */
 
-	PTC->PDDR |= 1 << LED_100MS; /* Port B16:  Data Direction= output */
-	PORTC->PCR[LED_100MS] = 0x00000100; /* Port B16:  MUX = ALT1, GPIO (to Port B16) */
+  //initialize LED 6 WINDOW
+  PTB->PDDR |= 1<<WINDOW_LED6;
+  PORTB->PCR[WINDOW_LED6] = 0x00000100;
+  PTB->PSOR |= 1<<WINDOW_LED6;
 
-	//------------------PORTB
-	PCC->PCCn[PCC_PORTB_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT B */
+  //initialize LED 7 WINDOW
+  PTB->PDDR |= 1<<WINDOW_LED7;
+  PORTB->PCR[WINDOW_LED7] = 0x00000100;
+  PTB->PSOR |= 1<<WINDOW_LED7;
 
-	PTB->PDDR |= 1 << LED_6P25MS; /* Port C14:  Data Direction= output */
-	PORTB->PCR[LED_6P25MS] = 0x00000100; /* Port C14:  MUX = ALT1, GPIO (to PORT C14) */
+  //initialize LED 8 WINDOW
+  PTB->PDDR |= 1<<WINDOW_LED8;
+  PORTB->PCR[WINDOW_LED8] = 0x00000100;
+  PTB->PSOR |= 1<<WINDOW_LED8;
 
-	PTB->PDDR |= 1 << LED_12P5MS; /* Port B17:  Data Direction= output */
-	PORTB->PCR[LED_12P5MS] = 0x00000100; /* Port B17:  MUX = ALT1, GPIO (to PORT B17) */
+  //initialize LED 9 WINDOW
+  PTB->PDDR |= 1<<WINDOW_LED9;
+  PORTB->PCR[WINDOW_LED9] = 0x00000100;
+  PTB->PSOR |= 1<<WINDOW_LED9;
 
-	PTB->PDDR |= 1 << LED_25MS; /* Port B14:  Data Direction= output */
-	PORTB->PCR[LED_25MS] = 0x00000100; /* Port B14:  MUX = ALT1, GPIO (to Port B14) */
+  //------------------PORTC------------------------------------------------------------//
+  PCC-> PCCn[PCC_PORTC_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT C */
 
-	PTB->PDDR |= 1 << LED_50MS; /* Port B15:  Data Direction= output */
-	PORTB->PCR[LED_50MS] = 0x00000100; /* Port B15:  MUX = ALT1, GPIO (to Port B15) */
+  //initialize LED 10 WINDOW
+  PTC->PDDR |= 1<<WINDOW_LED10;
+  PORTC->PCR[WINDOW_LED10] = 0x00000100;
+  PTC->PSOR |= 1<<WINDOW_LED10;
 
-}
+
+  //initialize LED 2 WINDOW
+  PTC->PDDR |= 1<<WINDOW_LED2;
+  PORTC->PCR[WINDOW_LED2] = 0x00000100;
+  PTC->PSOR |= 1<<WINDOW_LED2;
+
+
+  //Initialize BUTTON_UP
+  PTC->PDDR &= ~(1<<BUTTON_UP);
+  PORTC->PCR[BUTTON_UP] = 0x00000110;
+
+  //Initialize BUTTON_DOWN
+  PTC->PDDR &= ~(1<<BUTTON_DOWN);
+  PORTC->PCR[BUTTON_DOWN] = 0x00000110;
+
+
+  //------------------PORTD----------------------------------------------------------//
+
+    PCC-> PCCn[PCC_PORTD_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT D */
+
+    //Initialize BUTTON_ANTIPINCH
+      PTD->PDDR &= ~(1<<BUTTON_ANTIPINCH);
+      PORTD->PCR[BUTTON_ANTIPINCH] = 0x00000110;
+
+    PTD->PDDR |= 1<<INDICATOR_UP;
+    PORTD->PCR[INDICATOR_UP] =  0x00000100;
+    PTD->PSOR |= 1<<INDICATOR_UP;
+
+    PTD->PDDR |= 1<<INDICATOR_DOWN;
+    PORTD->PCR[INDICATOR_DOWN] =  0x00000100;
+    PTD->PSOR |= 1<<INDICATOR_DOWN;
+
+    PTD->PDDR |= 1<<INDICATOR_ANTIPINCH;
+    PORTD->PCR[INDICATOR_DOWN] =  0x00000100;
+    PTD->PSOR |= 1<<INDICATOR_ANTIPINCH;
+
+    PTD->PDDR |= 1<<TASK_1MS;
+    PORTD->PCR[TASK_1MS] =  0x00000100;
+    PTD->PSOR |= 1<<TASK_1MS;
+
+    PTD->PDDR |= 1<<TASK_2MS;
+    PORTD->PCR[TASK_2MS] =  0x00000100;
+    PTD->PSOR |= 1<<TASK_2MS;
+
+
+    //------------------PORTE-----------------------------------------------------------//
+      PCC-> PCCn[PCC_PORTE_INDEX] = PCC_PCCn_CGC_MASK; /* Enable clock for PORT E */
+
+      //initialize LED 1 WINDOW
+      PTE->PDDR |= 1<<WINDOW_LED1;
+      PORTE->PCR[WINDOW_LED1] = 0x00000100;
+      PTE->PSOR |= 1<<WINDOW_LED1;
+
+      //initialize LED 3 WINDOW
+      PTE->PDDR |= 1<<WINDOW_LED3;
+      PORTE->PCR[WINDOW_LED3] = 0x00000100;
+      PTE->PSOR |= 1<<WINDOW_LED3;
+
+      //initialize LED 4 WINDOW
+      PTE->PDDR |= 1<<WINDOW_LED4;
+      PORTE->PCR[WINDOW_LED4] = 0x00000100;
+      PTE->PSOR |= 1<<WINDOW_LED4;
+
+      //initialize LED 5 WINDOW
+      PTE->PDDR |= 1<<WINDOW_LED5;
+      PORTE->PCR[WINDOW_LED5] = 0x00000100;
+      PTE->PSOR |= 1<<WINDOW_LED5;
+
+  }
+
+
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
+
 
