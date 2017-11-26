@@ -5,14 +5,15 @@
 /*============================================================================*/
 /*!
  * $Source: SchM_Tasks.c $
- * $Revision: 9 $
+ * $Revision: 10 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
  * $Date: 25/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \
-    
+		Include the Task Functions SchM_1MS_Task & SchM_2MS_Task
+		State Machine Codification
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -59,6 +60,9 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           9        | Add Logical Structures on state */
 /*                     |                    |                #5 and #6        */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          10        | Add Logical Structures on state */
+/*                     |                    |       #7 and Default State      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -400,15 +404,22 @@
 	/*============================================================================================================================*/
 	case 7:
 		    
+			/* Actions state 7 */
 
+		     /* Conditions */
+			if((rs_Flag.bi1_flagWaiting5Secons)&&ruw_lpit0_counter<=_5000ms){ /* Condition to stay on state 7  */
+				/* Action to enable transition between state 7 */
+				state=7;
+			}
+
+			if(ruw_lpit0_counter>_5000ms){ /* Conditions of transitions between states 7 -> 1 */
+				/* Action to enable transition between state 7 - 1 */
+				state=1;
+				rs_Flag.bi1_flagWaiting5Secons=0;
+			}
 
 			break;
 		/*============================================================================================================================*/
-
-
-
-
-
 
 	/*****************************************************      D E F A U L T    **************************************************/
 	/*============================================================================================================================*/
