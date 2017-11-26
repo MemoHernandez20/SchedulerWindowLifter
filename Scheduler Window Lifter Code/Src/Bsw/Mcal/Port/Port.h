@@ -5,15 +5,15 @@
 /*============================================================================*/
 /*!
  * $Source: Port.h $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /**
-    Defines of the specific pins of each Port (LEDS and Buttons)
-*/
+ Defines of the specific pins of each Port (LEDS and Buttons)
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -31,13 +31,15 @@
 /*============================================================================*/
 /*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/*  |           |                                 */
+/*Guillermo Hernandez  |         1          | Defines and Prototype Function  */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |         2          |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: Port.h  $
-  ============================================================================*/
+ ============================================================================*/
 
 #ifndef BSW_MCAL_PORT_PORT_H_
 #define BSW_MCAL_PORT_PORT_H_
@@ -47,9 +49,14 @@
 
 #include "Std_Types.h"
 
-
 /* Defines */
 /*============================================================================*/
+#define INDICATOR_UP       0
+#define INDICATOR_DOWN     16
+#define INDICATOR_ANTIPINCH 15
+
+#define TASK_1MS           1
+#define TASK_2MS           3
 
 #define WINDOW_LED1        1
 #define WINDOW_LED2        14
@@ -66,36 +73,18 @@
 #define BUTTON_DOWN        13
 #define BUTTON_ANTIPINCH   7
 
-#define INDICATOR_UP       0
-#define INDICATOR_DOWN     16
-#define INDICATOR_ANTIPINCH 15
-
-#define TASK_1MS           1
-#define TASK_2MS           3
-
-
 /* Constants and types */
 /*============================================================================*/
-
-
 
 /* Exported Variables */
 /*============================================================================*/
 
-
 /* Exported functions prototypes */
 /*============================================================================*/
 
-void PORT_init (void);
+void PORT_init(void);
 
 #endif /* BSW_MCAL_PORT_PORT_H_ */
-  
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
-
-
-
-
-
-
 
