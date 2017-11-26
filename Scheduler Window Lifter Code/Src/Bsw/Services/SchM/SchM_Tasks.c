@@ -50,6 +50,9 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           6        | Add Logical Structures on state */
 /*                     |                    |                #2               */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |           7        | Add Logical Structures on state */
+/*                     |                    |                #3               */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -160,6 +163,47 @@
 	/*============================================================================================================================*/
 	case 3:
 		
+		/* Actions state 3 */
+		if(rs_Flag.bi1_flagDown){ ic_void_Indicator_Down_ON();}
+		if(rs_Flag.bi1_flagUp){ ic_void_Indicator_Up_ON();}
+
+		/* Evaluations */
+		if(rs_Flag.bi1_flagUp){
+
+			if(bc_T_UBYTE_UP_Button()&&(ruw_lpit0_counter>=_500ms)){ /* Conditions of transitions between states 3 -> 5 */
+				/* Action to enable transition between state 3 - 5 */
+				state=5;
+				rs_Flag.bi1_flagManualUp=1;
+				ruw_lpit0_counter=0;
+			}
+
+			if((bc_T_UBYTE_UP_Button()==0)&&(ruw_lpit0_counter<_500ms)){ /* Conditions of transitions between states 3 -> 4 */
+				/* Action to enable transition between state 3 - 4 */
+				state=4;
+				rs_Flag.bi1_flagAutomaticUp=1;
+				ruw_lpit0_counter=0;
+			}
+
+		}
+
+		if(rs_Flag.bi1_flagDown){
+
+			if(bc_T_UBYTE_DOWN_Button()&&(ruw_lpit0_counter>=_500ms)){ /* Conditions of transitions between states 3 -> 5 */
+				/* Action to enable transition between state 3 - 5 */
+				state=5;
+				rs_Flag.bi1_flagManualDown=1;
+				ruw_lpit0_counter=0;
+
+			}
+
+			if((bc_T_UBYTE_DOWN_Button()==0)&&(ruw_lpit0_counter<_500ms)){ /* Conditions of transitions between states 3 -> 4 */
+				/* Action to enable transition between state 3 - 4 */
+				state=4;
+				rs_Flag.bi1_flagAutomaticDown=1;
+				ruw_lpit0_counter=0;
+			}
+
+		}
 		
 		break;
 	/*============================================================================================================================*/
