@@ -5,9 +5,9 @@
 /*============================================================================*/
 /*!
  * $Source: app_windowcontrol.h $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
@@ -15,8 +15,8 @@
 
 
 
-    
-*/
+
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -35,33 +35,29 @@
 /*  AUTHOR             |    VERSION    |            DESCRIPTION               */
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |        1      |    Create Function Prototypes        */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |        2      |    Add Format to the Files           */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: app_windowcontrol.h  $
-  ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+ ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
-//#include "S32K144.h" /* include peripheral declarations S32K144 */
-//#include "MAL/gpio.h"
+
 #include "hal_windowleds.h"
 
 /* Constants and types */
 /*============================================================================*/
 
-
 /* Exported Variables */
 /*============================================================================*/
 
-
 /* Exported functions prototypes */
 /*============================================================================*/
-void wc_void_UP_Mode_Routine (T_UBYTE * window_level);
-void wc_void_DOWN_Mode_Routine (T_UBYTE * window_level);
-
+void wc_void_UP_Mode_Routine(T_UBYTE * window_level);
+void wc_void_DOWN_Mode_Routine(T_UBYTE * window_level);
 
 //#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
