@@ -5,16 +5,16 @@
 /*============================================================================*/
 /*!
  * $Source: app_buttonscontrol.c $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    APP file to control the  buttons.
+ APP file to control the  buttons.
 
-*/
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -33,63 +33,48 @@
 /*    Author         |      Version       |       Description                 */
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez|          1         |      Create Functions             */
-/*                   |                    |                                   */
-/*                   |                    |                                   */
-/*		             |	                  |                                   */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez|	        2         | Add Format to the Files           */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $  $
-  ============================================================================*/
+ ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
 #include "app_buttonscontrol.h"
 
-
 /* Constants and types  */
 /*============================================================================*/
-
-
 
 /* Variables */
 /*============================================================================*/
 
-
-
 /* Private functions prototypes */
 /*============================================================================*/
-
-
 
 /* Inline functions */
 /*============================================================================*/
 
-
-
-
 /* Private functions */
 /*============================================================================*/
 
-
 /* Exported functions */
 /*============================================================================*/
-T_UBYTE bc_T_UBYTE_UP_Button(){
+T_UBYTE bc_T_UBYTE_UP_Button() {
 
-	return (buttons_T_UBYTE_get_Button_Value(PORTCH_C,BUTTON_UP ));
+	return (buttons_T_UBYTE_get_Button_Value(PORTCH_C, BUTTON_UP));
 }
 
-T_UBYTE bc_T_UBYTE_DOWN_Button(){
+T_UBYTE bc_T_UBYTE_DOWN_Button() {
 
-	return (buttons_T_UBYTE_get_Button_Value(PORTCH_C,BUTTON_DOWN));
-
+	return (buttons_T_UBYTE_get_Button_Value(PORTCH_C, BUTTON_DOWN));
 }
 
-T_UBYTE bc_T_UBYTE_ANTIPINCH_Button(){
-	return (buttons_T_UBYTE_get_Button_Value(PORTCH_D,BUTTON_ANTIPINCH ));
+T_UBYTE bc_T_UBYTE_ANTIPINCH_Button() {
+	return (buttons_T_UBYTE_get_Button_Value(PORTCH_D, BUTTON_ANTIPINCH));
 }
 
-
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Notice: the file ends with a blank new line to avoid compiler warnings */

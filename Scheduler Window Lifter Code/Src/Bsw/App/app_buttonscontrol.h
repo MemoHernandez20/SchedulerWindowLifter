@@ -5,18 +5,18 @@
 /*============================================================================*/
 /*!
  * $Source: app_buttonscontrol.h $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \APP file for button control prototypes.
-     
 
 
-    
-*/
+
+
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -34,13 +34,15 @@
 /*============================================================================*/
 /*  AUTHOR             |    VERSION    |            DESCRIPTION               */
 /*----------------------------------------------------------------------------*/
-/*       |              |  */
+/*Guillermo Hernandez  |        1      |    Create Function Prototyes         */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |	    2      |     Add Format to the Files          */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: app_buttonscontrol.h  $
-  ============================================================================*/
+ ============================================================================*/
 #ifndef BUTTONSCONTROL_H
 #define BUTTONSCONTROL_H
 
@@ -51,16 +53,13 @@
 /* Constants and types */
 /*============================================================================*/
 
-
 /* Exported Variables */
 /*============================================================================*/
-
 
 /* Exported functions prototypes */
 /*============================================================================*/
 T_UBYTE bc_T_UBYTE_UP_Button();
 T_UBYTE bc_T_UBYTE_DOWN_Button();
 T_UBYTE bc_T_UBYTE_ANTIPINCH_Button();
-
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
