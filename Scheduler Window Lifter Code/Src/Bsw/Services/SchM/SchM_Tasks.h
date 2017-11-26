@@ -35,7 +35,11 @@
 /*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |          1         | Create a bitfield used as flags */
-/*                     |                    |                                 */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          2         | Add Variables used as:          */
+/*                     |                    |      counter , level            */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          3         | Define Prototypes of Task       */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -109,9 +113,11 @@ typedef struct {
 }S_Structflags;
 
 
-T_UWORD ruw_lpit0_counter; /* LPIT0 chan 0 timeout counter */
-T_UBYTE rub_level;
+
+
 S_Structflags rs_Flag;
+T_UBYTE rub_level;
+T_UWORD ruw_lpit0_counter; /* LPIT0 chan 0 timeout counter */
 
 
 
@@ -122,8 +128,11 @@ S_Structflags rs_Flag;
 /* Exported functions prototypes */
 /*============================================================================*/
 
+
 extern void SchM_1MS_Task  ( void );
+
 extern void SchM_2MS_Task ( void );
+
 
 #endif /* BSW_SERVICES_SCHM_SCHM_TASKS_H_ */
  
