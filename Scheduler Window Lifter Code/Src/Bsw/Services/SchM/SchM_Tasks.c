@@ -1,32 +1,18 @@
-/*
- * SchM_Tasks.c
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
- * $Revision: v1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Source: SchM_Tasks.c $
+ * $Revision: 1 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
+ * $Date: 25/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/**
- * Include the structures of the task
- *  SchM_3p125ms_Task
- *  SchM_6p25ms_Task
- *  SchM_12p5ms_Task
- *  SchM_25ms_Task
- *  SchM_50ms_Task
- *  SchM_100ms_Task
+/** \
+    
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -43,110 +29,65 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |       VERSION      |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/*Guillermo Hernandez  |           1        |   Create the Task Functions:    */
+/*                     |                    |    SchM_1MS_Task. SchM_2MS_Task */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |           2        | Add Toogle Pin Functions inside */
+/*                     |                    |        Task for TimeTesting     */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: SchM_Tasks.c  $
   ============================================================================*/
+
 
 /* Includes */
 /*============================================================================*/
-
 #include "SchM_Tasks.h"
-#include "Dio.h"
 
-/* Constants and types  */
+
+/* Defines */
 /*============================================================================*/
 
 
 
-/* Variables */
+/* Constants and types */
 /*============================================================================*/
 
 
 
-/* Private functions prototypes */
+/* Exported Variables */
 /*============================================================================*/
-
-
-
-/* Inline functions */
-/*============================================================================*/
-
-
-
-
-/* Private functions */
-/*============================================================================*/
-
 
 
 /* Exported functions */
 /*============================================================================*/
 
-void SchM_3p125ms_Task(void) {
-/*Timing Test ( Use a counter to evaluate the times that the scheduler enter to this Task = toogle LED )*/
-	static int counter;
-	static int flag=0;
-	counter++;
-	if (counter>=3000 && (flag !=1) ) /*3000 * 1ms = 3seconds*/
-	{
-		Dio_PortTooglePin(PORTCH_D, LED_OVERLOAD);
-		counter=0;
-		flag=1;
-	}
+ void SchM_1MS_Task  ( ){
 
-	if (counter>=3000 && (flag ==1) )
-		{
-			Dio_PortTooglePin(PORTCH_D, LED_OVERLOAD);
-			counter=0;
-			flag=0;
-		}
+	 Dio_PortTooglePin(PORTCH_D, TASK_1MS); /*TooglePIN used for Testing the 1ms Task*/
 
+	
+
+ }
+
+
+
+
+ void SchM_2MS_Task ()
+{
+
+	//unsigned int i;
+
+	Dio_PortTooglePin(PORTCH_D, TASK_2MS); /*TooglePIN used for Testing the 2ms Task*/
 
 }
 
-/*
-
-void SchM_6p25ms_Task(void) {
-	Dio_PortTooglePin(PORTCH_B, LED_6P25MS);
-	static int counter;
-	for (counter = 0; counter <= NumberOfCycles ; counter++) {
-	}
-
-}
-
-extern void SchM_12p5ms_Task(void) {
-	Dio_PortTooglePin(PORTCH_B, LED_12P5MS);
-	static int counter;
-	for (counter = 0; counter <= NumberOfCycles ; counter++) {
-	}
-}
-extern void SchM_25ms_Task(void) {
-	Dio_PortTooglePin(PORTCH_B, LED_25MS);
-	static int counter;
-	for (counter = 0; counter <= NumberOfCycles ; counter++) {
-	}
-}
-extern void SchM_50ms_Task(void) {
-	Dio_PortTooglePin(PORTCH_B, LED_50MS);
-	static int counter;
-	for (counter = 0; counter <= NumberOfCycles ; counter++) {
-	}
-}
-extern void SchM_100ms_Task(void) {
-	Dio_PortTooglePin(PORTCH_C, LED_100MS);
-	static int counter;
-	for (counter = 0; counter <= NumberOfCycles ; counter++) {
-	}
-
-
-} */
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
+
+
+
