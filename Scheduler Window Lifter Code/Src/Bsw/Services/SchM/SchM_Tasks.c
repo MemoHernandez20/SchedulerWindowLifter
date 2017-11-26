@@ -47,6 +47,9 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           5        | Add Logical Structures on state */
 /*                     |                    |                #1               */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |           6        | Add Logical Structures on state */
+/*                     |                    |                #2               */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -94,7 +97,7 @@
 		ic_void_Indicator_Up_OFF();
 		ic_void_Indicator_Down_OFF();
 
-	/* Conditions */
+	/* Evaluations */
 		if((bc_T_UBYTE_UP_Button()==0) || (bc_T_UBYTE_DOWN_Button()==0)){ /* Conditions to  1  */
 			/* Actions to saty on state 1 */
 			state=1;
@@ -113,6 +116,41 @@
 	/*============================================================================================================================*/
 	case 2:
 		
+		/* Actions state 2 */
+		ic_void_Indicator_Up_OFF();
+		ic_void_Indicator_Down_OFF();
+
+		/* Evaluations */
+
+		if(bc_T_UBYTE_UP_Button()||bc_T_UBYTE_DOWN_Button()|| bc_T_UBYTE_ANTIPINCH_Button() ){ /* Conditions to stay on state 2  */
+			/* Actions to stay on state 1 */
+			state=2;
+		}
+
+		if((bc_T_UBYTE_UP_Button()==0)&&(bc_T_UBYTE_DOWN_Button()==0)&&(bc_T_UBYTE_ANTIPINCH_Button()==0)){ /* Conditions of transitions between states 2 -> 1 */
+			/* Action to enable transition between state 2 - 1 */
+			state=1;
+		}
+
+
+		if((ruw_lpit0_counter>10)&&(bc_T_UBYTE_UP_Button())){ /* Conditions of transitions between states 2 ->3 */
+			/* Action to enable transition between state 2 - 3 */
+			state=3;
+			rs_Flag.bi1_flagUp=1;
+		}
+
+		if((ruw_lpit0_counter>10)&&(bc_T_UBYTE_DOWN_Button())){ /* Conditions of transitions between states 2 -> 3 */
+			/* Action to enable transition between state 2 - 3 */
+			state=3;
+			rs_Flag.bi1_flagDown=1;
+		}
+
+		if((ruw_lpit0_counter>10)&&(bc_T_UBYTE_ANTIPINCH_Button())){ /* Conditions of transitions between states 2 -> 6 */
+			/* Action to enable transition between state 2 - 6 */
+			state=6;
+			rs_Flag.bi1_FlagAntipinch=1;
+			ruw_lpit0_counter=0;
+		}
 
 		break;
 	/*============================================================================================================================*/
