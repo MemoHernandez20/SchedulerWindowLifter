@@ -5,14 +5,14 @@
 /*============================================================================*/
 /*!
  * $Source: buttons.c $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/17 $
+ * $Date: 26/11/17 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    HAL file to get the value of the buttons                                         */
+ HAL file to get the value of the buttons                                         */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -32,51 +32,41 @@
 /*----------------------------------------------------------------------------*/
 /* Guillermo Hernandez |         1          |    Create function to get       */
 /*                     |                    |   the value of the Buttons      */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |         2          |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: buttons.c  $
-  ============================================================================*/
+ ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
 #include "hal_buttons.h"
 
-
 /* Constants and types  */
 /*============================================================================*/
-
-
 
 /* Variables */
 /*============================================================================*/
 
-
-
 /* Private functions prototypes */
 /*============================================================================*/
-
-
 
 /* Inline functions */
 /*============================================================================*/
 
-
-
 /* Private functions */
 /*============================================================================*/
-
 
 /* Exported functions */
 /*============================================================================*/
 
-T_UBYTE buttons_T_UBYTE_get_Button_Value(DioPortType DioPort, uint32_t DioPin){
+T_UBYTE buttons_T_UBYTE_get_Button_Value(DioPortType DioPort, uint32_t DioPin) {
 
-	return (Dio_PortGetPin(DioPort,DioPin));
+	return (Dio_PortGetPin(DioPort, DioPin));
 
 }
 
-
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
