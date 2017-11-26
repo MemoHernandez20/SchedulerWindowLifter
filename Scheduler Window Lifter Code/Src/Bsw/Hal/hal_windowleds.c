@@ -5,15 +5,15 @@
 /*============================================================================*/
 /*!
  * $Source: windowleds.c $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/17 $
+ * $Date: 26/11/17 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    HAL file to control the state of the windowLEDS
-*/
+ HAL file to control the state of the windowLEDS
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -33,12 +33,14 @@
 /*----------------------------------------------------------------------------*/
 /* Guillermo Hernandez |          1         |    Create functions to          */
 /*                     |                    |control the state of the windowLED*/
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |         2          |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: windowleds.c  $
-  ============================================================================*/
+ ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
@@ -47,38 +49,27 @@
 /* Constants and types  */
 /*============================================================================*/
 
-
-
 /* Variables */
 /*============================================================================*/
-
-
 
 /* Private functions prototypes */
 /*============================================================================*/
 
-
-
 /* Inline functions */
 /*============================================================================*/
-
-
-
 
 /* Private functions */
 /*============================================================================*/
 
-
 /* Exported functions */
 /*============================================================================*/
 
-void windowleds_void_open_Window(DioPortType DioPort, uint32_t DioPin){
+void windowleds_void_open_Window(DioPortType DioPort, uint32_t DioPin) {
 	Dio_PortSetPin(DioPort, DioPin);
 }
 
-void windowleds_void_close_Window(DioPortType DioPort, uint32_t DioPin){
+void windowleds_void_close_Window(DioPortType DioPort, uint32_t DioPin) {
 	Dio_PortClearPin(DioPort, DioPin);
 }
 
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
