@@ -5,16 +5,16 @@
 /*============================================================================*/
 /*!
  * $Source: app_indicatorscontrol.c $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    APP file to control the status of the indicator LEDS
+ APP file to control the status of the indicator LEDS
 
-*/
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -34,61 +34,48 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez|          1         |   Create Function to set the      */
 /*                   |                    |     state of the Indicator LEDS   */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez|	        2         | Add Format to the Files           */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: app_indicatorscontrol.c  $
-  ============================================================================*/
+ ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
 #include "app_indicatorscontrol.h"
 
-
 /* Constants and types  */
 /*============================================================================*/
-
-
 
 /* Variables */
 /*============================================================================*/
 
-
-
 /* Private functions prototypes */
 /*============================================================================*/
-
-
 
 /* Inline functions */
 /*============================================================================*/
 
-
-
-
 /* Private functions */
 /*============================================================================*/
 
-
 /* Exported functions */
 /*============================================================================*/
-void ic_void_Indicator_Up_ON(){
-	indicator_void_clear_indicator(PORTCH_D,UP_Indicator);
+void ic_void_Indicator_Up_ON() {
+	indicator_void_clear_indicator(PORTCH_D, UP_Indicator);
 }
-void ic_void_Indicator_Up_OFF(){
-	indicator_void_set_indicator(PORTCH_D,UP_Indicator);
-}
-
-void ic_void_Indicator_Down_ON(){
-	indicator_void_clear_indicator(PORTCH_D,DOWN_Indicator);
-}
-void ic_void_Indicator_Down_OFF(){
-	indicator_void_set_indicator(PORTCH_D,DOWN_Indicator);
+void ic_void_Indicator_Up_OFF() {
+	indicator_void_set_indicator(PORTCH_D, UP_Indicator);
 }
 
+void ic_void_Indicator_Down_ON() {
+	indicator_void_clear_indicator(PORTCH_D, DOWN_Indicator);
+}
+void ic_void_Indicator_Down_OFF() {
+	indicator_void_set_indicator(PORTCH_D, DOWN_Indicator);
+}
 
-
-
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
