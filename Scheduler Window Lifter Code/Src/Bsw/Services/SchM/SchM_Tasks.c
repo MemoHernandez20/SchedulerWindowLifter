@@ -36,6 +36,11 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           2        | Add Toogle Pin Functions inside */
 /*                     |                    |        Task for TimeTesting     */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |           3        | Add Static Variable : State     */
+/*                     |                    |   (used on Switch/Case )        */
+/*                     |                    |Add Variable: ruw_lpit0_counter  */
+/*                     |                    |        used as counter          */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -70,7 +75,8 @@
 
 	 Dio_PortTooglePin(PORTCH_D, TASK_1MS); /*TooglePIN used for Testing the 1ms Task*/
 
-	
+	static unsigned char state = 1;
+	ruw_lpit0_counter++;
 
  }
 
