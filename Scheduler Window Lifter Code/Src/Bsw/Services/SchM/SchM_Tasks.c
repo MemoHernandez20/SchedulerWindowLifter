@@ -44,6 +44,9 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           4        | Create the template (Switch-Case*/
 /*                     |                    |   to define the state machine   */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |           5        | Add Logical Structures on state */
+/*                     |                    |                #1               */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -87,6 +90,21 @@
 	/*============================================================================================================================*/
 	case 1:
 	
+			/* Actions state 1 */
+		ic_void_Indicator_Up_OFF();
+		ic_void_Indicator_Down_OFF();
+
+	/* Conditions */
+		if((bc_T_UBYTE_UP_Button()==0) || (bc_T_UBYTE_DOWN_Button()==0)){ /* Conditions to  1  */
+			/* Actions to saty on state 1 */
+			state=1;
+		}
+
+		if(bc_T_UBYTE_UP_Button()||bc_T_UBYTE_DOWN_Button()){ /* Conditions of transicion between states 1 -> 2 */
+			/* Actions to enable transition state 2 */
+			state=2;
+			ruw_lpit0_counter=0;
+		}
 
 		break;
 	/*============================================================================================================================*/
