@@ -5,7 +5,7 @@
 /*============================================================================*/
 /*!
  * $Source: SchM_Tasks.c $
- * $Revision: 1 $
+ * $Revision: 8 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
  * $Date: 25/11/2017 $
  */
@@ -53,6 +53,9 @@
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           7        | Add Logical Structures on state */
 /*                     |                    |                #3               */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |           8        | Add Logical Structures on state */
+/*                     |                    |                #4               */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -212,6 +215,64 @@
 	/*============================================================================================================================*/
 	case 4:
 		
+			/* Actions state 4 */
+		if(rs_Flag.bi1_flagAutomaticDown){
+			if(rub_level>=1){
+				if(ruw_lpit0_counter>=_400ms){
+					wc_void_DOWN_Mode_Routine (&rub_level);
+					rub_level--;
+					ruw_lpit0_counter=0;
+				}
+
+			}
+
+		}
+
+		if(rs_Flag.bi1_flagAutomaticUp){
+			if(rub_level<10){
+				if(ruw_lpit0_counter>=_400ms){
+					rub_level++;
+					wc_void_UP_Mode_Routine (&rub_level);
+					ruw_lpit0_counter=0;
+				}
+
+			}
+
+		}
+
+		/* Conditions */
+
+		if(rs_Flag.bi1_flagAutomaticUp&&rub_level==10){ /* Conditions of transitions between states 4 -> 0 */
+			/* Action to enable transition between state 4 - 0 */
+			state=1;
+			rs_Flag.bi1_flagAutomaticUp=0;
+			rs_Flag.bi1_flagUp=0;
+		}
+
+		if(rs_Flag.bi1_flagAutomaticDown&&rub_level==0){ /* Conditions of transitions between states 4 -> 0 */
+			/* Action to enable transition between state 4 - 0 */
+			state=1;
+			rs_Flag.bi1_flagAutomaticDown=0;
+			rs_Flag.bi1_flagDown=0;
+		}
+
+		if((bc_T_UBYTE_UP_Button())||(bc_T_UBYTE_DOWN_Button())){ /* Conditions of transitions between states 4 -> 1 */
+			/* Action to enable transition between state 4 - 1 */
+			state=2;
+			rs_Flag.bi1_flagAutomaticDown=0;
+			rs_Flag.bi1_flagDown=0;
+			rs_Flag.bi1_flagAutomaticUp=0;
+			rs_Flag.bi1_flagUp=0;
+			ruw_lpit0_counter=0;
+		}
+
+		if((rs_Flag.bi1_flagUp)&&bc_T_UBYTE_ANTIPINCH_Button()){ /* Conditions of transitions between states 4 -> 1 */
+			/* Action to enable transition between state 4 - 1 */
+			state=2;
+			rs_Flag.bi1_flagAutomaticUp=0;
+			rs_Flag.bi1_flagUp=0;
+			ruw_lpit0_counter=0;
+		}
 
 		break;
 	/*============================================================================================================================*/
