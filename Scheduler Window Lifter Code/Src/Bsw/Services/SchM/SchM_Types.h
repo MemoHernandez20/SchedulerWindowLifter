@@ -5,15 +5,15 @@
 /*============================================================================*/
 /*!
  * $Source: SchM_Types.h $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \
 		File with Enums and Struct of Task State & Task Status
-*/
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -32,12 +32,14 @@
 /*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |           1        |  Adding comments                */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          2         |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: SchM_Types.h  $
-  ============================================================================*/
+ ============================================================================*/
 
 #ifndef BSW_SERVICES_SCHM_SCHM_TYPES_H_
 #define BSW_SERVICES_SCHM_SCHM_TYPES_H_
@@ -45,7 +47,6 @@
 /* Includes */
 /*============================================================================*/
 #include "Std_Types.h"
-
 
 /* Defines */
 /*============================================================================*/
@@ -59,46 +60,31 @@
 #define PIN100MS    3
 #define PINOVERLOAD 14 // Before: 16
 
-
 /* Constants and types */
 /*============================================================================*/
 
-typedef enum
-{
-	SCHM_TASK_STATE_SUSPENDED,
-	SCHM_TASK_STATE_READY,
-	SCHM_TASK_STATE_RUNNING
-}SchM_TaskStateType;
+typedef enum {
+	SCHM_TASK_STATE_SUSPENDED, SCHM_TASK_STATE_READY, SCHM_TASK_STATE_RUNNING
+} SchM_TaskStateType;
 
-typedef enum
-{
-	SCHM_UNINIT,
-	SCHM_INIT,
-	SCHM_IDLE,
-	SCHM_RUNNING,
-	SCHM_OVERLOAD,
-	SCHM_HALTED
-}SchM_SchedulerStateType;
+typedef enum {
+	SCHM_UNINIT, SCHM_INIT, SCHM_IDLE, SCHM_RUNNING, SCHM_OVERLOAD, SCHM_HALTED
+} SchM_SchedulerStateType;
 
-typedef struct
-{
+typedef struct {
 	SchM_TaskStateType SchM_TaskState;
-}SchM_TaskControlBlockType;
+} SchM_TaskControlBlockType;
 
-typedef struct
-{
-	uint16_t	OsTickCounter;
+typedef struct {
+	uint16_t OsTickCounter;
 	SchM_SchedulerStateType SchM_SchedulerState;
-}SchM_SchedulerStatusType;
-
+} SchM_SchedulerStatusType;
 
 /* Exported Variables */
 /*============================================================================*/
 
-
 /* Exported functions prototypes */
 /*============================================================================*/
-
 
 #endif /* BSW_SERVICES_SCHM_SCHM_TYPES_H_ */
 

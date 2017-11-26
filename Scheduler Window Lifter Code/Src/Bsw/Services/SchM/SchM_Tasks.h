@@ -5,18 +5,18 @@
 /*============================================================================*/
 /*!
  * $Source: SchM_Tasks.h $
- * $Revision: 1 $
+ * $Revision: 4 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \
 		SchM_Task.h file
-		Definition of flags.
-		Definition of Task Prototypes.
-		
-*/
+ Definition of flags.
+ Definition of Task Prototypes.
+
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -40,12 +40,14 @@
 /*                     |                    |      counter , level            */
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |          3         | Define Prototypes of Task       */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          4         |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: SchM_Tasks.h  $
-  ============================================================================*/
+ ============================================================================*/
 
 #ifndef BSW_SERVICES_SCHM_SCHM_TASKS_H_
 #define BSW_SERVICES_SCHM_SCHM_TASKS_H_
@@ -58,11 +60,18 @@
 #include "app_windowcontrol.h"
 #include "Dio.h"
 
-
 /* Defines */
 /*============================================================================*/
 
 #define NumberOfCycles (uint32_t)2700
+
+#define _1ms 1
+#define _10ms 10
+#define _500ms 500
+#define _400ms 400
+#define _1000ms 1000
+#define _3000ms 3000
+#define _5000ms 5000
 
 #define WINDOW_LED1        1
 #define WINDOW_LED2        14
@@ -86,56 +95,37 @@
 #define TASK_2MS          3
 #define TRANSITION_400MS  3
 
-
-#define _1ms 1
-#define _10ms 10
-#define _500ms 500
-#define _400ms 400
-#define _1000ms 1000
-#define _3000ms 3000
-#define _5000ms 5000
-
-
 /* Constants and types */
 /*============================================================================*/
 
 typedef struct {
 
-	T_UBYTE bi1_flagAutomaticUp:1;
-	T_UBYTE bi1_flagAutomaticDown:1;
-	T_UBYTE bi1_flagManualUp:1;
-	T_UBYTE bi1_flagManualDown:1;
-	T_UBYTE bi1_flagUp:1;
-	T_UBYTE bi1_flagDown:1;
-	T_UBYTE bi1_FlagAntipinch:1;
-	T_UBYTE bi1_flagWaiting5Secons:1;
+	T_UBYTE bi1_flagAutomaticUp :1;
+	T_UBYTE bi1_flagAutomaticDown :1;
+	T_UBYTE bi1_flagManualUp :1;
+	T_UBYTE bi1_flagManualDown :1;
+	T_UBYTE bi1_flagUp :1;
+	T_UBYTE bi1_flagDown :1;
+	T_UBYTE bi1_FlagAntipinch :1;
+	T_UBYTE bi1_flagWaiting5Secons :1;
 
-}S_Structflags;
-
-
-
+} S_Structflags;
 
 S_Structflags rs_Flag;
 T_UBYTE rub_level;
 T_UWORD ruw_lpit0_counter; /* LPIT0 chan 0 timeout counter */
 
-
-
 /* Exported Variables */
 /*============================================================================*/
-
 
 /* Exported functions prototypes */
 /*============================================================================*/
 
+extern void SchM_1MS_Task(void);
 
-extern void SchM_1MS_Task  ( void );
-
-extern void SchM_2MS_Task ( void );
-
+extern void SchM_2MS_Task(void);
 
 #endif /* BSW_SERVICES_SCHM_SCHM_TASKS_H_ */
- 
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
 

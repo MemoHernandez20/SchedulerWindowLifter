@@ -5,15 +5,15 @@
 /*============================================================================*/
 /*!
  * $Source: SchM.h  $
- * $Revision: 1 $
+ * $Revision: 2 $
  * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
- * $Date: 25/11/2017 $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \
      Function Prototypes
-*/
+ */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -32,12 +32,14 @@
 /*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
 /*Guillermo Hernandez  |          1    | Create the function Prototypes       */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          2    |         Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
  * $Log: SchM.h  $
-  ============================================================================*/
+ ============================================================================*/
 #ifndef BSW_SERVICES_SCHM_SCHM_H_
 #define BSW_SERVICES_SCHM_SCHM_H_
 
@@ -47,37 +49,31 @@
 #include "SchM_Cfg.h"
 #include "SchM_Types.h"
 
-
 /* Defines */
 /*============================================================================*/
-
 
 /* Constants and types */
 /*============================================================================*/
 
-typedef struct{
-    uint8_t FlagOverLoad: 1;    //Flag for indicating that an Overload have occured
-    uint8_t FlagTaskState:1;    //Flag for indicating that there is a task in Ready/Running state
+typedef struct {
+	uint8_t FlagOverLoad :1; //Flag for indicating that an Overload have occured
+	uint8_t FlagTaskState :1; //Flag for indicating that there is a task in Ready/Running state
 } Flags;
-
 
 /* Exported Variables */
 /*============================================================================*/
 
-
 /* Exported functions prototypes */
 /*============================================================================*/
 
-
-extern void SchM_Init( const SchM_ConfigType *SchMConfig );
-extern void SchM_Start( void );
-extern void SchM_Stop( void );
+extern void SchM_Init(const SchM_ConfigType *SchMConfig);
+extern void SchM_Start(void);
+extern void SchM_Stop(void);
 void TurnOnOverloadPin(void);
 void TurnOnBackgroundPin(void);
 void TurnOffBackgroundPin(void);
 
 #endif /* BSW_SERVICES_SCHM_SCHM_H_ */
- 
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
 
