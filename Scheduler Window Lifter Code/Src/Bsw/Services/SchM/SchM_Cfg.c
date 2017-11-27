@@ -1,24 +1,19 @@
-/*
- * SchM_Cfg.c
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
- * $Revision: v1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Source: SchM_Cfg.c $
+ * $Revision: 2 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/**
+/** \
+    	Include Struct with the values of the Task 1ms and 2ms
+ Values: Mask, Offset, ID.
  */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -35,62 +30,44 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |       VERSION      |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/*Guillermo Hernandez  |          1         |  Create Structs used for the    */
+/*                     |                    |    task (1ms and 2ms)           */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |         2          |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: SchM_Cfg.c  $
  ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
-
 #include "SchM.h"
 #include "SchM_Tasks.h"
 
-/* Constants and types  */
+/* Defines */
 /*============================================================================*/
 
-/* Variables */
+/* Constants and types */
 /*============================================================================*/
 
-/* Private functions prototypes */
-/*============================================================================*/
-
-/* Inline functions */
-/*============================================================================*/
-
-/* Private functions */
-/*============================================================================*/
-
-/** Check if action is allowed by overload protection.
- To avoid overheating of the door locking motors and hardware failure
- the software shall limit the number of activations in a short period.
- This function checks if the limitation algorithm allows or not
- a certain activation of the motors.
- \returns TRUE if the activation is allowed, FALSE if not
- */
-
-/* Exported functions */
-/*============================================================================*/
-
-const SchM_TaskConfigType TaskDescriptor[] = { { SCHM_TASKID_3P125MS,
-		SCHM_MASK_3P125MS, SCHM_OFFSET_3P125MS, SchM_3p125ms_Task }, {
-		SCHM_TASKID_6P25MS, SCHM_MASK_6P25MS, SCHM_OFFSET_6P25MS,
-		SchM_6p25ms_Task }, { SCHM_TASKID_12P5MS, SCHM_MASK_12P5MS,
-		SCHM_OFFSET_12P5MS, SchM_12p5ms_Task }, { SCHM_TASKID_25MS,
-		SCHM_MASK_25MS, SCHM_OFFSET_25MS, SchM_25ms_Task }, { SCHM_TASKID_50MS,
-		SCHM_MASK_50MS, SCHM_OFFSET_50MS, SchM_50ms_Task }, { SCHM_TASKID_100MS,
-		SCHM_MASK_100MS, SCHM_OFFSET_100MS, SchM_100ms_Task }
+const SchM_TaskConfigType TaskDescriptor[] = { { SCHM_TASKID_1MS, SCHM_MASK_1MS,
+		SCHM_OFFSET_1MS, SchM_1MS_Task }, { SCHM_TASKID_2MS, SCHM_MASK_2MS,
+		SCHM_OFFSET_2MS, SchM_2MS_Task }
 
 };
 
 const SchM_ConfigType SchedulerConfig = { sizeof(TaskDescriptor)
 		/ sizeof(SchM_TaskConfigType), &TaskDescriptor[0] };
 
+/* Exported Variables */
+/*============================================================================*/
+
+/* Exported functions prototypes */
+/*============================================================================*/
+
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
+

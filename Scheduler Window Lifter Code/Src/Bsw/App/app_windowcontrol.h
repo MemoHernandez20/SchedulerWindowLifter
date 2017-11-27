@@ -4,17 +4,17 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: SchM_Tasks.h $
- * $Revision: 4 $
- * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
+ * $Source: app_windowcontrol.h $
+ * $Revision: 2 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
  * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \
-		SchM_Task.h file
- Definition of flags.
- Definition of Task Prototypes.
+/** \APP file for window control functions (Prototypes)
+
+
+
 
  */
 /*============================================================================*/
@@ -32,100 +32,32 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
+/*  AUTHOR             |    VERSION    |            DESCRIPTION               */
 /*----------------------------------------------------------------------------*/
-/*Guillermo Hernandez  |          1         | Create a bitfield used as flags */
+/*Guillermo Hernandez  |        1      |    Create Function Prototypes        */
 /*----------------------------------------------------------------------------*/
-/*Guillermo Hernandez  |          2         | Add Variables used as:          */
-/*                     |                    |      counter , level            */
-/*----------------------------------------------------------------------------*/
-/*Guillermo Hernandez  |          3         | Define Prototypes of Task       */
-/*----------------------------------------------------------------------------*/
-/*Guillermo Hernandez  |          4         |    Add Format to the Files      */
+/*Guillermo Hernandez  |        2      |    Add Format to the Files           */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: SchM_Tasks.h  $
+ * $Log: app_windowcontrol.h  $
  ============================================================================*/
-
-#ifndef BSW_SERVICES_SCHM_SCHM_TASKS_H_
-#define BSW_SERVICES_SCHM_SCHM_TASKS_H_
 
 /* Includes */
 /*============================================================================*/
-#include "Std_Types.h"
-#include "app_buttonscontrol.h"
-#include "app_indicatorscontrol.h"
-#include "app_windowcontrol.h"
-#include "Dio.h"
 
-/* Defines */
-/*============================================================================*/
-
-#define NumberOfCycles (uint32_t)2700
-
-#define _1ms 1
-#define _10ms 10
-#define _500ms 500
-#define _400ms 400
-#define _1000ms 1000
-#define _3000ms 3000
-#define _5000ms 5000
-
-#define WINDOW_LED1        1
-#define WINDOW_LED2        14
-#define WINDOW_LED3        14
-#define WINDOW_LED4        15
-#define WINDOW_LED5        16
-#define WINDOW_LED6        16
-#define WINDOW_LED7        15
-#define WINDOW_LED8        14
-#define WINDOW_LED9        17
-#define WINDOW_LED10       7
-
-#define BUTTON_UP          12
-#define BUTTON_DOWN        13
-#define BUTTON_ANTIPINCH   7
-
-#define INDICATOR_UP       0
-#define INDICATOR_DOWN     16
-
-#define TASK_1MS          1
-#define TASK_2MS          3
-#define TRANSITION_400MS  3
+#include "hal_windowleds.h"
 
 /* Constants and types */
 /*============================================================================*/
-
-typedef struct {
-
-	T_UBYTE bi1_flagAutomaticUp :1;
-	T_UBYTE bi1_flagAutomaticDown :1;
-	T_UBYTE bi1_flagManualUp :1;
-	T_UBYTE bi1_flagManualDown :1;
-	T_UBYTE bi1_flagUp :1;
-	T_UBYTE bi1_flagDown :1;
-	T_UBYTE bi1_FlagAntipinch :1;
-	T_UBYTE bi1_flagWaiting5Secons :1;
-
-} S_Structflags;
-
-S_Structflags rs_Flag;
-T_UBYTE rub_level;
-T_UWORD ruw_lpit0_counter; /* LPIT0 chan 0 timeout counter */
 
 /* Exported Variables */
 /*============================================================================*/
 
 /* Exported functions prototypes */
 /*============================================================================*/
+void wc_void_UP_Mode_Routine(T_UBYTE * window_level);
+void wc_void_DOWN_Mode_Routine(T_UBYTE * window_level);
 
-extern void SchM_1MS_Task(void);
-
-extern void SchM_2MS_Task(void);
-
-#endif /* BSW_SERVICES_SCHM_SCHM_TASKS_H_ */
-
-/* Notice: the file ends with a blank new line to avoid compiler warnings */
-
+//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

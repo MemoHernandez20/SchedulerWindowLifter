@@ -1,24 +1,18 @@
-/*
- * SchM.c
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
- * $Revision: v1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Source: SchM.c $
+ * $Revision: 2 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/**
+/** \
+     Backgrown Sch Init & Stop
  */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -35,46 +29,36 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |       VERSION      |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/* Guillermo Hernández |         1          |Comment some lines to disable the*/
+/*                     |                    | Indicator of Background task    */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          2         |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: SchM.c  $
  ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
-
 #include "General.h"
 #include "SchM.h"
 #include "Lpit.h"
+
+/*
+ *  */
 #include "Dio.h"
 
-/* Constants and types  */
+/* Defines */
 /*============================================================================*/
-
 #define NUM_OF_TASKS (0x6)
+
+/* Constants and types */
+/*============================================================================*/
 const SchM_ConfigType *GlbSchMConfig;
-
-/* Variables */
-/*============================================================================*/
-
-/* Private functions prototypes */
-/*============================================================================*/
-
-/* Inline functions */
-/*============================================================================*/
-
-/* Private functions */
-/*============================================================================*/
-
-/* Exported functions */
-/*============================================================================*/
 
 SchM_TaskControlBlockType SchM_TaskControlBlock[NUM_OF_TASKS];
 SchM_SchedulerStatusType SchM_SchedulerStatus;
@@ -83,6 +67,11 @@ Flags FlagsScheduler = { 0, 0 };
 
 uint32_t OsTickCounter = 0; /* Remove this line */
 
+/* Exported Variables */
+/*============================================================================*/
+
+/* Exported functions */
+/*============================================================================*/
 void SchM_OsTick(void) {
 
 	uint8_t LocTaskIdx;
@@ -116,14 +105,18 @@ void SchM_Background(void) {
 				SchM_TaskControlBlock[LocTaskIdx].SchM_TaskState =
 						SCHM_TASK_STATE_RUNNING;
 				SchM_SchedulerStatus.SchM_SchedulerState = SCHM_RUNNING;
-				TurnOffBackgroundPin();	//Turn off the pin that indicates when the Background function is being executed
+				/*
+				 TurnOffBackgroundPin();	//Turn off the pin that indicates when the Background function is being executed
+				 */
 				GlbSchMConfig->TaskConfig[LocTaskIdx].TaskCallback();
 				SchM_TaskControlBlock[LocTaskIdx].SchM_TaskState =
 						SCHM_TASK_STATE_SUSPENDED;
 				//Clear the Flag that indicates that there is one Task Activated.
 				FlagsScheduler.FlagTaskState = 0;
 				SchM_SchedulerStatus.SchM_SchedulerState = SCHM_IDLE;
-				TurnOnBackgroundPin(); //Turn on the pin that indicates when the Background function is being executed
+				/*
+				 TurnOnBackgroundPin(); //Turn on the pin that indicates when the Background function is being executed
+				 */
 			}
 		}
 	}
@@ -139,7 +132,7 @@ void SchM_Init(const SchM_ConfigType *SchMConfig) {
 				SCHM_TASK_STATE_SUSPENDED;
 	}
 
-	LPIT0_init(SchM_OsTick); /* Initialize PIT0 for 781.25 micro-seconds timeout & Callback Install */
+	LPIT0_init(SchM_OsTick); /* Initialize PIT0 for 500 micro-seconds timeout & Callback Install */
 
 	SchM_SchedulerStatus.SchM_SchedulerState = SCHM_INIT;
 }
@@ -154,18 +147,17 @@ void SchM_Stop(void) {
 }
 
 TurnOnOverloadPin(void) {
-	Dio_PortClearPin(PORTCH_D, LED_OVERLOAD);
+	Dio_PortSetPin(PORTCH_E, PINOVERLOAD);
 }
 
 void TurnOnBackgroundPin(void) {
-	Dio_PortClearPin(PORTCH_D, LED_BKG);
+	Dio_PortSetPin(PORTCH_E, PINBKG);
 }
 
 void TurnOffBackgroundPin(void) {
-	Dio_PortSetPin(PORTCH_D, LED_BKG);
+	Dio_PortClearPin(PORTCH_E, PINBKG);
 
 }
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */
-
 

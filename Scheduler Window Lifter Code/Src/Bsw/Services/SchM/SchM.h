@@ -1,24 +1,18 @@
-/*
- * SchM.h
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.x $
- * $Revision: 1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Source: SchM.h  $
+ * $Revision: 2 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/**
+/** \
+     Function Prototypes
  */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -35,40 +29,42 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*       AUTHOR        |      VERSION       |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/*Guillermo Hernandez  |          1    | Create the function Prototypes       */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |          2    |         Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: SchM.h  $
  ============================================================================*/
 #ifndef BSW_SERVICES_SCHM_SCHM_H_
 #define BSW_SERVICES_SCHM_SCHM_H_
 
 /* Includes */
 /*============================================================================*/
-
 #include "Std_Types.h"
 #include "SchM_Cfg.h"
 #include "SchM_Types.h"
 
+/* Defines */
+/*============================================================================*/
+
 /* Constants and types */
-/*============================================================================*/
-
-/* Exported Variables */
-/*============================================================================*/
-
-/* Exported functions prototypes */
 /*============================================================================*/
 
 typedef struct {
 	uint8_t FlagOverLoad :1; //Flag for indicating that an Overload have occured
 	uint8_t FlagTaskState :1; //Flag for indicating that there is a task in Ready/Running state
 } Flags;
+
+/* Exported Variables */
+/*============================================================================*/
+
+/* Exported functions prototypes */
+/*============================================================================*/
 
 extern void SchM_Init(const SchM_ConfigType *SchMConfig);
 extern void SchM_Start(void);
@@ -78,4 +74,6 @@ void TurnOnBackgroundPin(void);
 void TurnOffBackgroundPin(void);
 
 #endif /* BSW_SERVICES_SCHM_SCHM_H_ */
+
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
 

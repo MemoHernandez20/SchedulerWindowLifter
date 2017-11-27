@@ -1,24 +1,18 @@
-/*
- * Port.h
- *
- *  Created on: 15/11/2017
- *      Author: uid87753
- */
-
 /*============================================================================*/
 /*                        I BS SOFTWARE GROUP                                 */
 /*============================================================================*/
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.x $
- * $Revision: 1 $
- * $Author: Guillermo Hernández $
- * $Date: 11/17/2017 $
+ * $Source: Port.h $
+ * $Revision: 2 $
+ * $Author: Hernandez Ramirez Guillermo, Hernandez Jimenez Manuel  $
+ * $Date: 26/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /**
+ Defines of the specific pins of each Port (LEDS and Buttons)
  */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -35,17 +29,18 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*       AUTHOR        |      VERSION       |          DESCRIPTION            */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Guillermo Hernández |           1        |        Update structures        */
-/*                     |                    |                                 */
-/* Manuel Hernández     |                    |                                 */
+/*Guillermo Hernandez  |         1          | Defines and Prototype Function  */
+/*----------------------------------------------------------------------------*/
+/*Guillermo Hernandez  |         2          |    Add Format to the Files      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: Port.h  $
  ============================================================================*/
+
 #ifndef BSW_MCAL_PORT_PORT_H_
 #define BSW_MCAL_PORT_PORT_H_
 
@@ -53,6 +48,30 @@
 /*============================================================================*/
 
 #include "Std_Types.h"
+
+/* Defines */
+/*============================================================================*/
+#define INDICATOR_UP       0
+#define INDICATOR_DOWN     16
+#define INDICATOR_ANTIPINCH 15
+
+#define TASK_1MS           1
+#define TASK_2MS           3
+
+#define WINDOW_LED1        1
+#define WINDOW_LED2        14
+#define WINDOW_LED3        14
+#define WINDOW_LED4        15
+#define WINDOW_LED5        16
+#define WINDOW_LED6        16
+#define WINDOW_LED7        15
+#define WINDOW_LED8        14
+#define WINDOW_LED9        17
+#define WINDOW_LED10       7
+
+#define BUTTON_UP          12
+#define BUTTON_DOWN        13
+#define BUTTON_ANTIPINCH   7
 
 /* Constants and types */
 /*============================================================================*/
@@ -62,15 +81,10 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-#define LED_BKG      0
-#define LED_3P125MS  7
-#define LED_6P25MS   17
-#define LED_12P5MS   14
-#define LED_25MS     15
-#define LED_50MS     16
-#define LED_100MS    14
-#define LED_OVERLOAD 15
 
 void PORT_init(void);
 
 #endif /* BSW_MCAL_PORT_PORT_H_ */
+
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
+
