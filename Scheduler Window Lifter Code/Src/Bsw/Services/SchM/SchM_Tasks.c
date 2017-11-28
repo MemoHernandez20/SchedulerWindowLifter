@@ -102,14 +102,15 @@ void SchM_1MS_Task() {
 	switch (state) {
 
 	/*****************************************************    S T A T E      1   **************************************************/
-    /*   State Name       --> Nothing																							  *
+    /*   State Name                        --> Nothing																			  *
      *                                                                                                                            *
      *   Code ID:                                                                                                                 *
      *   CSW_01																													  *
      *                                                                                                                            *
      *   Traceability ID큦: 																						              *
-     *   DSD_Template.doc --> DSD_23																							  *
-     *   Test_Plan.xls    --> TSW_10                                                                                              */
+     *   DSD_Template.doc                  --> DSD_23																			  *
+     *   Test_Plan.xls                     --> TSW_10
+     *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 	/*============================================================================================================================*/
 	case 1:
 
@@ -140,7 +141,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_24																							  *
-		 *   Test_Plan.xls    --> TSW_11                                                                                              */
+		 *   Test_Plan.xls    --> TSW_11
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	case 2:
 
@@ -192,7 +194,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_25																							  *
-		 *   Test_Plan.xls    --> TSW_12                                                                                              */
+		 *   Test_Plan.xls    --> TSW_12
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	case 3:
 
@@ -254,7 +257,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_26																							  *
-		 *   Test_Plan.xls    --> TSW_13                                                                                              */
+		 *   Test_Plan.xls    --> TSW_13
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	case 4:
 
@@ -328,7 +332,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_27																							  *
-		 *   Test_Plan.xls    --> TSW_14                                                                                              */
+		 *   Test_Plan.xls    --> TSW_14
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	case 5:
 
@@ -413,7 +418,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_28																							  *
-		 *   Test_Plan.xls    --> TSW_15                                                                                              */
+		 *   Test_Plan.xls    --> TSW_15
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	case 6:
 
@@ -455,7 +461,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_29																							  *
-		 *   Test_Plan.xls    --> TSW_16                                                                                              */
+		 *   Test_Plan.xls    --> TSW_16
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	case 7:
 
@@ -484,7 +491,8 @@ void SchM_1MS_Task() {
          *                                                                                                                            *
 		 *   Traceability ID큦: 																						              *
 		 *   DSD_Template.doc --> DSD_30																							  *
-		 *   Test_Plan.xls    --> TSW_17                                                                                              */
+		 *   Test_Plan.xls    --> TSW_17
+		 *   Traceability Matrix Template.xls  --> SWS_31                                                                             */
 		/*============================================================================================================================*/
 	default:
 				Dio_PortTooglePin(PORTCH_D, INDICATOR_DOWN);
